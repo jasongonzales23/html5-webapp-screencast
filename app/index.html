@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>html5_webapps</title>
+        <title>Beerlist</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -29,40 +29,54 @@
 
         <div class="container">
             <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">html5_webapps</h3>
+                <h3 class="text-muted">Beerlist</h3>
+                <a class="btn" href="#">Add</a>
+                <span id="network-status" class="label label-success">Online</span>
             </div>
+            <div class="row">
+                <div class="col-lg-12" id="full-list">
+                  <div class="list-group">
+                    <a href="#" class="list-group-item">Thing One</a>
+                    <a href="#" class="list-group-item">Thing Two</a>
+                    <a href="#" class="list-group-item">Thing Three</a>
+                  </div>
+                </div>
 
-            <div class="jumbotron">
-                <h1>'Allo World</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-            </div>
+                <div class="col-lg-12" id="add-item">
+                  <h3>Add Item</h3>
+                  <form role="form">
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input class="form-control" id="title" name="title" placeholder="Title"/>
+                    </div>
 
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea class="form-control" id="description" name="description" placeholder="Description" rows="10"></textarea>
+                    </div>
 
-                    <h4>Sass with Compass</h4>
-                    <p>Compass is an open-source CSS Authoring Framework that uses Sass.</p>
+                    <div class="form-group clearfix">
+                      <button id="transcribe" class="btn btn-lg btn-info pull-right">Transcribe</button>
+                    </div>
 
+                    <div class="form-group clearfix">
+                      <button id="upload-photo" class="btn btn-lg btn-success pull-right">Upload a photo</button>
+                    </div>
 
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
+                    <div class="form-group">
+                      <p>Current Location: <strong>Lat</strong> <span id="lat">43</span>, <strong>Long</strong> <span id="long">43</span>
+                    </div>
 
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+                    <div class="form-group">
+                      <button id="cancel-add-item" class="btn btn-lg btn-default pull-left">Cancel</button>
+                      <button id="submit-item" type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
+                    </div>
 
+                  </form>
                 </div>
             </div>
 
             <div class="footer">
-                <p>♥ from the Yeoman team</p>
             </div>
 
         </div>
