@@ -89,3 +89,12 @@ body {
         border-bottom: 0;
     }
 }
+
+/* styles for beerlist/birdwatching app */
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
