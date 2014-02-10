@@ -34,7 +34,15 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 view active" id="full-list">
-                  <!-- full list will render here -->
+
+                  <script id="full-list-template" type="text/x-handlebars-template">
+                  <div class="list-group">
+                    {{#each beers}}
+                    <a href="#" class="list-group-item view-switcher" data-item="{{id}}" data-target="#item-detail" class="list-group-item">{{ title }}</a>
+                    {{/each}}
+                  </div>
+                  </script>
+
                 </div><!-- end full-list -->
 
                 <div class="col-lg-12 view" id="add-item">
@@ -73,42 +81,36 @@
                 </div><!-- end add-item -->
 
                 <div class="col-lg-12 view" id="item-detail">
-                  <!-- item detail will render here -->
-                </div>
 
+
+                    <script id="item-detail-template" type="text/x-handlebars-template">
+                    <h3>Item Detail</h3>
+                    <div class="list-group">
+                        <p id="show-title" class="list-group-item">{{ title }}</p>
+                        <p id="show-description" class="list-group-item">{{ description }}</p>
+                        <p id="show-image" class="list-group-item">
+                          <span class="label">Image:</span>
+                          <img src="" />
+                        </p>
+                        <p id="show-location" class="list-group-item">
+                          Location: <strong>Lat</strong> <span id="lat">{{ location.latitude }}</span>, <strong>Long</strong> <span id="long">{{ location.longitude }}</span>
+                        </p>
+                      </div><!--end of list-->
+                      <p>
+                        <button id="back-to-list" class="btn btn-lg btn-default">Back to List</button>
+                        <button id="edit-item" class="btn btn-lg btn-default">Edit</button>
+                      </p>
+                    </script>
+
+
+                </div>
             </div>
 
             <div class="footer">
             </div>
 
-          <script id="full-list-template" type="text/x-handlebars-template">
-          <div class="list-group">
-            {{#each beers}}
-            <a href="#" class="list-group-item view-switcher" data-item="{{id}}" data-target="#item-detail" class="list-group-item">{{ title }}</a>
-            {{/each}}
-          </div>
-          </script>
-
-        <script id="item-detail-template" type="text/x-handlebars-template">
-        <h3>Item Detail</h3>
-        <div class="list-group">
-            <p id="show-title" class="list-group-item">{{ title }}</p>
-            <p id="show-description" class="list-group-item">{{ description }}</p>
-            <p id="show-image" class="list-group-item">
-              <span class="label">Image:</span>
-              <img src="" />
-            </p>
-            <p id="show-location" class="list-group-item">
-              Location: <strong>Lat</strong> <span id="lat">{{ location.latitude }}</span>, <strong>Long</strong> <span id="long">{{ location.longitude }}</span>
-            </p>
-          </div><!--end of list-->
-          <p>
-            <button id="back-to-list" data-target="#full-list" class="view-switcher btn btn-lg btn-default">Back to List</button>
-            <button id="edit-item" class="btn btn-lg btn-default">Edit</button>
-          </p>
-        </script>
-
         </div>
+
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
