@@ -5,9 +5,11 @@ var hideShowFunction = function (evt) {
   var data = eventTarget.data();
   $('.view').removeClass('active');
   $(data.target).addClass('active')
+
+  renderTemplate(data.target, data.item);
 };
 
-$('.view-switcher').on('click', function(evt){
+$('body').on('click','.view-switcher', function(evt){
   hideShowFunction(evt);
 });
 
@@ -19,7 +21,7 @@ if (Modernizr.localstorage) {
     "title": "Pliny the Younger",
     "description" : "Good!",
     "image" : null,
-    "location" : { "latitude" : 42, "longitude" : 42 }
+    "location" : { "latitude" : 142, "longitude" : 124 }
     },
     {
     "id": "2",
@@ -44,10 +46,27 @@ else {
 }
 
 //template compilation and rendering
-var source = $("#list-template").html();
-var template = Handlebars.compile(source);
+var renderTemplate = function( target, item ) {
+  var targetTemplate = target + '-template';
+  var source = $(targetTemplate).html();
+  var template = Handlebars.compile(source);
 
-var data = { beers: beers };
-var html = template(data);
+  var data;
+  if (item) {
+    var itemId = item.toString();
+    var arr = $.grep( beers, function (beer, i) {
+      return beer.id === itemId;
+    });
+    data = arr[0];
+  }
+   else {
+    data = { beers: beers };
+   }
+  var html = template(data);
+  $(target).html(html);
+};
 
-$('#full-list').append(html);
+//getting to the detail view from the list
+
+//render the list as soon as the page loads
+renderTemplate('#full-list');
