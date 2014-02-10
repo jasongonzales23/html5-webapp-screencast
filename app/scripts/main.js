@@ -5,9 +5,11 @@ var hideShowFunction = function (evt) {
   var data = eventTarget.data();
   $('.view').removeClass('active');
   $(data.target).addClass('active')
+
+  renderTemplate(data.target);
 };
 
-$('.view-switcher').on('click', function(evt){
+$('body').on('click','.view-switcher', function(evt){
   hideShowFunction(evt);
 });
 
@@ -44,10 +46,18 @@ else {
 }
 
 //template compilation and rendering
-var source = $("#list-template").html();
-var template = Handlebars.compile(source);
+var renderTemplate = function( target ) {
+  var targetTemplate = target + '-template';
+  var source = $(targetTemplate).html();
+  var template = Handlebars.compile(source);
 
-var data = { beers: beers };
-var html = template(data);
+  //data
+  var data = { beers: beers };
+  var html = template(data);
+  $(target).append(html);
+};
 
-$('#full-list').append(html);
+//getting to the detail view from the list
+
+//render the list as soon as the page loads
+renderTemplate('#full-list');

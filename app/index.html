@@ -35,10 +35,10 @@
             <div class="row">
                 <div class="col-lg-12 view active" id="full-list">
 
-                  <script id="list-template" type="text/x-handlebars-template">
+                  <script id="full-list-template" type="text/x-handlebars-template">
                   <div class="list-group">
                     {{#each beers}}
-                    <a href="#" class="list-group-item">{{ title }}</a>
+                    <a href="#" class="list-group-item view-switcher" data-item="{{id}}" data-target="#item-detail" class="list-group-item">{{ title }}</a>
                     {{/each}}
                   </div>
                   </script>
@@ -81,6 +81,10 @@
                 </div><!-- end add-item -->
 
                 <div class="col-lg-12 view" id="item-detail">
+
+                  <script id="item-detail-template" type="text/x-handlebars-template">
+                    <p>There is nothing here right now</p>
+                  </script>
                   <h3>Item Detail</h3>
 
                   <div class="list-group">
