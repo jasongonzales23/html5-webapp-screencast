@@ -26,14 +26,14 @@ if (Modernizr.localstorage) {
     "title": "Racer 5",
     "description" : "Excellent",
     "image" : null,
-    "location" : [42, 42]
+    "location" : { "latitude" : 42, "longitude" : 42 }
     },
     {
     "id": "3",
     "title": "Pliny the Elder",
     "description" : "Good!",
     "image" : null,
-    "location" : [42, 42]
+    "location" : { "latitude" : 42, "longitude" : 42 }
     }
   ];
 
