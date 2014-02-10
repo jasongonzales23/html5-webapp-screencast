@@ -47,7 +47,7 @@ else {
 var source = $("#list-template").html();
 var template = Handlebars.compile(source);
 
-var data = {title: "This is the title", body: "This is the body!"}
+var data = { beers: beers };
 var html = template(data);
 
 $('#full-list').append(html);

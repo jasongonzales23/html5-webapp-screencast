@@ -36,15 +36,13 @@
                 <div class="col-lg-12 view active" id="full-list">
 
                   <script id="list-template" type="text/x-handlebars-template">
-                    <p>{{ title }}</p>
-                    <p>{{ body }}</p>
+                  <div class="list-group">
+                    {{#each beers}}
+                    <a href="#" class="list-group-item">{{ title }}</a>
+                    {{/each}}
+                  </div>
                   </script>
 
-                  <div class="list-group">
-                    <a href="#" class="list-group-item">Thing One</a>
-                    <a href="#" class="list-group-item">Thing Two</a>
-                    <a href="#" class="list-group-item">Thing Three</a>
-                  </div>
                 </div><!-- end full-list -->
 
                 <div class="col-lg-12 view" id="add-item">
